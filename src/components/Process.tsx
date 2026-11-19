@@ -23,7 +23,7 @@ export default function Process() {
         <SectionHeading
           eyebrow="How it works"
           title="Four steps, no surprises"
-          description="Same process for a 30-second ad and a full identity system. You always know what happens next and what it costs."
+          description="The same simple process for a 7-second bumper or a full batch of ads. You always know what happens next."
         />
 
         <div ref={ref} className="relative mt-16 pl-10 sm:pl-16">

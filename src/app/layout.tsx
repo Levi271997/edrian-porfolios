@@ -20,33 +20,34 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://edrianvale.com"),
+  metadataBase: new URL("https://levi271997.github.io/edrian-porfolios/"),
   title: {
-    default: "Edrian Vale — Video Editor & Graphic Designer",
-    template: "%s — Edrian Vale",
+    default: "Edrian — Video Editor & Graphic Designer",
+    template: "%s — Edrian",
   },
   description:
-    "Portfolio of Edrian Vale, a video editor and graphic designer cutting brand films, motion graphics and identity systems for studios, labels and founders.",
+    "Portfolio of Edrian, a freelance video editor and graphic designer in the Philippines making video ads, UGC edits, AI videos and static ad graphics.",
   keywords: [
     "video editor",
     "graphic designer",
-    "motion graphics",
-    "brand identity",
-    "color grading",
+    "video ads",
+    "UGC editor",
+    "AI video",
+    "freelancer Philippines",
     "portfolio",
   ],
   openGraph: {
-    title: "Edrian Vale — Video Editor & Graphic Designer",
+    title: "Edrian — Video Editor & Graphic Designer",
     description:
-      "Brand films, motion graphics and identity systems from a one-person post house.",
+      "Video ads, UGC edits, AI videos and ad graphics from a freelance editor and designer in the Philippines.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Edrian Vale — Video Editor & Graphic Designer",
+    title: "Edrian — Video Editor & Graphic Designer",
     description:
-      "Brand films, motion graphics and identity systems from a one-person post house.",
+      "Video ads, UGC edits, AI videos and ad graphics from a freelance editor and designer in the Philippines.",
   },
 };
 

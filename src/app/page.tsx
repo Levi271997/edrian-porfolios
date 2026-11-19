@@ -5,7 +5,6 @@ import Showreel from "@/components/Showreel";
 import Services from "@/components/Services";
 import About from "@/components/About";
 import Process from "@/components/Process";
-import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/ui/Cursor";
@@ -24,7 +23,6 @@ export default function Home() {
         <Services />
         <About />
         <Process />
-        <Testimonials />
         <Contact />
       </main>
       <Footer />

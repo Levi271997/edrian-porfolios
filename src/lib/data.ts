@@ -1,45 +1,42 @@
 import type { LucideIcon } from "lucide-react";
 import {
+  Captions,
   Film,
-  Palette,
+  Image,
+  MonitorPlay,
+  Smartphone,
   Sparkles,
-  Wand2,
-  Layers,
-  Music4,
 } from "lucide-react";
 
 export const profile = {
-  name: "Edrian Vale",
+  name: "Edrian",
   role: "Video Editor & Graphic Designer",
-  tagline: "I cut stories that hold attention and design brands that hold up.",
-  location: "Manila, PH — working worldwide",
-  email: "hello@edrianvale.com",
-  years: 8,
+  tagline: "I edit scroll-stopping video ads and design graphics that sell.",
+  location: "Freelancer based in the Philippines",
+  email: "edrianpadilla03212002@gmail.com",
+  years: 2,
+  age: 25,
+  education: "B.S. Information Technology",
 };
 
-export const socials = [
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "Behance", href: "https://behance.net" },
-  { label: "Vimeo", href: "https://vimeo.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-];
 
 export const marqueeWords = [
-  "Video Editing",
-  "Motion Graphics",
-  "Brand Identity",
-  "Color Grading",
-  "Sound Design",
-  "Packaging",
+  "Video Ads",
+  "UGC Edits",
+  "AI Video",
   "Short Form",
-  "Art Direction",
+  "Static Ads",
+  "Captions & Subtitles",
+  "Long Form",
+  "Social Graphics",
 ];
 
+/** Counts taken from the work on this site. */
 export const stats = [
-  { value: 340, suffix: "+", label: "Projects delivered" },
-  { value: 8, suffix: " yrs", label: "Behind the timeline" },
-  { value: 62, suffix: "M", label: "Views on edited work" },
-  { value: 47, suffix: "", label: "Happy clients" },
+  { value: 31, suffix: "", label: "Videos in this portfolio" },
+  { value: 6, suffix: "", label: "Ad graphics" },
+  { value: 8, suffix: "", label: "Industries served" },
+  { value: 2, suffix: " yrs", label: "Editing & designing" },
 ];
 
 export type Service = {
@@ -52,198 +49,180 @@ export type Service = {
 export const services: Service[] = [
   {
     icon: Film,
-    title: "Video Editing",
-    body: "Narrative cuts, brand films, docu-style interviews and ads — paced to keep the viewer past the first three seconds.",
-    tags: ["Premiere Pro", "DaVinci Resolve", "Final Cut"],
+    title: "Video Ad Editing",
+    body: "Direct-response ads for e-commerce, insurance, health and home services — hook first, clear offer, strong call to action.",
+    tags: ["Premiere Pro", "CapCut", "Paid social"],
+  },
+  {
+    icon: Smartphone,
+    title: "UGC & Short Form",
+    body: "Creator-style edits for TikTok, Reels and Shorts: fast pacing, punchy captions and formats like split-screen and POV.",
+    tags: ["CapCut", "TikTok", "Reels"],
   },
   {
     icon: Sparkles,
-    title: "Motion Graphics",
-    body: "Titles, lower-thirds, kinetic type and animated logo stings that feel native to the edit instead of pasted on top.",
-    tags: ["After Effects", "Cinema 4D", "Rive"],
+    title: "AI Video",
+    body: "Product spots and UGC-style ads built from AI-generated footage, then cut, captioned and paced like real ads.",
+    tags: ["AI footage", "CapCut", "Premiere Pro"],
   },
   {
-    icon: Palette,
-    title: "Brand Identity",
-    body: "Logo systems, type scales and colour rules delivered as a kit your whole team can actually use without me.",
-    tags: ["Illustrator", "Figma", "Guidelines"],
+    icon: Image,
+    title: "Graphic Design",
+    body: "Static ads, promo cards and social graphics with clear offers and bold type, sized for every placement.",
+    tags: ["Photoshop", "Static ads", "Social"],
   },
   {
-    icon: Wand2,
-    title: "Color Grading",
-    body: "Node-based grades, LUT builds and shot matching that give mixed-camera footage a single consistent look.",
-    tags: ["Resolve", "LUTs", "Shot match"],
+    icon: MonitorPlay,
+    title: "Long Form & VSL",
+    body: "YouTube videos, video sales letters and podcast edits that hold attention past the first few minutes.",
+    tags: ["Premiere Pro", "YouTube", "VSL"],
   },
   {
-    icon: Layers,
-    title: "Print & Packaging",
-    body: "Posters, editorial layouts, merch and packaging prepped to spec — with press-ready files and no surprises.",
-    tags: ["InDesign", "Photoshop", "Pre-press"],
-  },
-  {
-    icon: Music4,
-    title: "Sound Design",
-    body: "Dialogue cleanup, licensed music edits, foley and mix levels tuned for phone speakers and cinema alike.",
-    tags: ["Audition", "Mixing", "Foley"],
+    icon: Captions,
+    title: "Captions & Localization",
+    body: "Animated captions and subtitled re-edits that take a winning ad into new markets and languages.",
+    tags: ["Subtitles", "Captions", "Re-edits"],
   },
 ];
 
-export type Category = "All" | "Video" | "Motion" | "Branding" | "Print";
+export type Category =
+  | "All"
+  | "UGC"
+  | "AI Video"
+  | "Video Ads"
+  | "Long Form"
+  | "Graphics";
+
+export type Orientation = "vertical" | "square" | "landscape";
 
 export type Project = {
   id: string;
   title: string;
+  /** Brand or format line shown under the title. */
   client: string;
   category: Exclude<Category, "All">;
-  year: string;
   blurb: string;
-  gradient: string;
-  span: "wide" | "tall" | "normal";
+  kind: "video" | "image";
+  /** Path under /public; run through `asset()` before rendering. */
+  src: string;
+  poster: string;
+  orientation: Orientation;
   runtime?: string;
 };
 
-export const categories: Category[] = ["All", "Video", "Motion", "Branding", "Print"];
-
-export const projects: Project[] = [
-  {
-    id: "nocturne",
-    title: "Nocturne",
-    client: "Lumen Records",
-    category: "Video",
-    year: "2025",
-    blurb: "A four-minute music film shot on two cameras, cut to the beat and graded for neon streets.",
-    gradient: "from-flare-600 via-flare-400 to-pulse-500",
-    span: "wide",
-    runtime: "04:12",
-  },
-  {
-    id: "orbit",
-    title: "Orbit OS",
-    client: "Orbit Labs",
-    category: "Motion",
-    year: "2025",
-    blurb: "Product launch loop with animated UI, kinetic type and a logo sting built in Cinema 4D.",
-    gradient: "from-pulse-500 via-indigo-500 to-sky-400",
-    span: "normal",
-    runtime: "00:48",
-  },
-  {
-    id: "saltbrew",
-    title: "Saltbrew",
-    client: "Coastal Coffee Co.",
-    category: "Branding",
-    year: "2024",
-    blurb: "Full identity system: wordmark, cup packaging, signage and a 40-page brand book.",
-    gradient: "from-mint-400 via-emerald-500 to-teal-600",
-    span: "normal",
-  },
-  {
-    id: "atlas",
-    title: "Atlas Field Notes",
-    client: "Atlas Outdoors",
-    category: "Video",
-    year: "2024",
-    blurb: "Docu-series on backcountry guides — six episodes, interview-led, natural sound forward.",
-    gradient: "from-amber-500 via-orange-600 to-rose-600",
-    span: "tall",
-    runtime: "12:30",
-  },
-  {
-    id: "vertex",
-    title: "Vertex Type Specimen",
-    client: "Vertex Foundry",
-    category: "Print",
-    year: "2024",
-    blurb: "Risograph specimen book pairing a variable grotesk with hand-set display cuts.",
-    gradient: "from-fuchsia-500 via-pink-500 to-rose-500",
-    span: "normal",
-  },
-  {
-    id: "halcyon",
-    title: "Halcyon Titles",
-    client: "Halcyon Films",
-    category: "Motion",
-    year: "2023",
-    blurb: "Opening title sequence — 38 seconds of practical light leaks composited over kinetic credits.",
-    gradient: "from-cyan-400 via-blue-500 to-pulse-500",
-    span: "normal",
-    runtime: "00:38",
-  },
-  {
-    id: "meridian",
-    title: "Meridian",
-    client: "Meridian Studio",
-    category: "Branding",
-    year: "2023",
-    blurb: "Architecture studio rebrand with a modular grid mark and a restrained editorial system.",
-    gradient: "from-slate-400 via-zinc-500 to-ink-600",
-    span: "wide",
-  },
-  {
-    id: "riso",
-    title: "Late Set Posters",
-    client: "Blue Room Jazz",
-    category: "Print",
-    year: "2023",
-    blurb: "A twelve-poster run for a jazz residency, two spot colours, printed monthly for a year.",
-    gradient: "from-violet-500 via-purple-600 to-indigo-700",
-    span: "normal",
-  },
+export const categories: Category[] = [
+  "All",
+  "UGC",
+  "AI Video",
+  "Video Ads",
+  "Long Form",
+  "Graphics",
 ];
+
+const video = (
+  id: string,
+  title: string,
+  client: string,
+  category: Project["category"],
+  runtime: string,
+  blurb: string,
+  orientation: Orientation = "vertical",
+): Project => ({
+  id,
+  title,
+  client,
+  category,
+  runtime,
+  blurb,
+  orientation,
+  kind: "video",
+  src: `/media/videos/${id}.mp4`,
+  poster: `/media/posters/${id}.jpg`,
+});
+
+const graphic = (
+  n: number,
+  title: string,
+  client: string,
+  blurb: string,
+  orientation: Orientation = "vertical",
+): Project => ({
+  id: `graphic-${n}`,
+  title,
+  client,
+  category: "Graphics",
+  blurb,
+  orientation,
+  kind: "image",
+  src: `/media/graphics/graphic-${n}.jpg`,
+  poster: `/media/graphics/graphic-${n}.jpg`,
+});
+
+/** Ordered so the first screen of "All" mixes formats. */
+export const projects: Project[] = [
+  video("skool-ugc", "Skool Creator Ad", "Skool · UGC", "UGC", "0:25", "Fast-cut UGC ad stacking creator clips and captions to sell the Skool community platform."),
+  video("ai-adult-ecom-1", "Waterproof Product Spot", "E-commerce brand · AI", "AI Video", "0:24", "AI-generated product hero shots cut to a punchy vertical spot for paid social."),
+  video("static-video", "DirectMeds Tirzepatide", "DirectMeds · Static video", "Video Ads", "1:48", "Static-style video ad: animated offer layout, price comparison and trust badges.", "square"),
+  graphic(3, "Valentine's Offer", "Flawless Skin Centre", "Seasonal promo for laser hair removal — bold serif offer type over warm pink tones."),
+  video("ugc-1", "Weight-Loss Story", "Health brand · UGC", "UGC", "1:22", "Testimonial-led UGC with kinetic captions and before/after beats."),
+  video("ai-supplement-1", "Supplement Brand — Spot 1", "Supplement brand · AI", "AI Video", "0:19", "Short AI-driven lifestyle spot with bold caption callouts."),
+  video("video-graphic", "CreatorFlo Motion Ad", "CreatorFlo · Motion graphics", "Video Ads", "0:19", "Motion-graphic ad mixing talking-head footage with animated logo and UI callouts."),
+  video("ugc-gameplay", "Bakery Story + Gameplay", "Split-screen UGC", "UGC", "0:26", "Split-screen format pairing a founder story with gameplay to hold scroll attention."),
+  graphic(1, "Get More Done", "CreatorFlo", "Static ad for an AI content tool — product shot, benefit bullets and a clear CTA."),
+  video("home-security", "Home Security Ad", "Home security · Video ad", "Video Ads", "0:44", "Doorbell-cam hook into a problem/solution pitch for a home-security offer."),
+  video("ugc-ai-ecom", "Hair Restoration Story", "E-commerce brand · AI UGC", "AI Video", "0:40", "AI UGC testimonial built around a hair-restoration product."),
+  video("news-reel", "News-Style Reel", "Short-form reel", "Video Ads", "0:32", "News-format reel with lower-thirds and dramatic caption pacing."),
+  video("ugc-2", "Going-Viral POV", "Creator tool · UGC", "UGC", "0:22", "POV-style UGC ad with relatable hook and on-screen text."),
+  video("medicare-2", "Senior Utility Explainer", "Medicare · Video ad", "Video Ads", "0:58", "Square news-style explainer for a senior benefits offer.", "square"),
+  graphic(4, "February Sale", "Flawless Skin Centre", "Laser hair removal sale card with a playful 'Get Smooth / Stay Prickly' choice."),
+  video("ai-ugc", "Retirement Savings Story", "Finance · AI UGC", "AI Video", "0:42", "AI UGC ad on retirement savings, cut with b-roll and captions."),
+  video("shopify", "Shopify Founder Ad", "Shopify · Talking head", "UGC", "0:37", "Founder-to-camera ad with punchy word-by-word captions."),
+  video("auto-insurance", "Auto Insurance Quote", "Auto insurance · Video ad", "Video Ads", "0:10", "Interactive-style quote flow animated over driving footage.", "square"),
+  video("ugc-3", "Sobriety Story", "Wellness · UGC", "UGC", "0:49", "Personal-story UGC with emotional pacing and clear captions."),
+  video("ai-adult-ecom-2", "Level Ten Teaser", "E-commerce brand · AI", "AI Video", "0:29", "Graphic-led AI teaser built around an animated intensity dial."),
+  video("life-insurance", "Life Insurance Ad", "Life insurance · Video ad", "Video Ads", "0:56", "Split-screen reaction format for a life-insurance offer."),
+  graphic(6, "3 Causes of a Saggy Mom Belly", "Sweet Birth", "Problem/solution static for a postpartum wrap — icon list and product payoff.", "square"),
+  video("ugc-4", "Morning Routine UGC", "Lifestyle · UGC", "UGC", "1:01", "Selfie-style UGC with green-screen product cutaways."),
+  video("replacement-program", "Replacement Program", "Home improvement · Video ad", "Video Ads", "1:07", "Story-driven home-improvement ad with curiosity hooks."),
+  video("ai-supplement-2", "Supplement Brand — Spot 2", "Supplement brand · AI", "AI Video", "0:19", "AI spot on blood-pressure health with stat-driven captions."),
+  video("medicare", "Medicare Ad", "Medicare · Video ad", "Video Ads", "0:33", "Senior-focused benefits ad with reaction footage and captions."),
+  graphic(2, "3 Sessions for $68", "Flawless Skin Centre", "Clean, airy promo graphic for a February laser hair offer."),
+  video("ecom", "Gadget E-commerce Ad", "E-commerce · Video ad", "Video Ads", "0:57", "Product demo stacked over a talking-head pitch."),
+  video("replacement-program-2", "Replacement Program — Cut 2", "Home improvement · Video ad", "Video Ads", "0:53", "Alternate hook and pacing for A/B testing."),
+  video("adult-ecom", "Doctor-Recommended Product", "E-commerce brand · Video ad", "Video Ads", "0:55", "Authority-led e-commerce ad built around a doctor recommendation hook."),
+  video("swedish-ecom", "Swedish Hair-Tool Ad", "Swedish e-commerce brand", "Video Ads", "0:40", "Localized Swedish ad for a hair styling tool."),
+  graphic(5, "Valentine's Card", "Flawless Skin Centre", "Hearts-and-cupid seasonal variant of the laser offer."),
+  video("translation", "Headlight Ad — Translated", "Localized video ad", "Video Ads", "2:00", "Ad re-edited and subtitled for a non-English market."),
+  video("video-ad-2", "Skincare Routine Ad", "Beauty · Video ad", "Video Ads", "0:34", "Close-up beauty routine with soft captions."),
+  video("ecom-short", "Phone Battery Teaser", "E-commerce · Short", "Video Ads", "0:07", "Seven-second bumper for a phone accessory."),
+  video("ai-film", "Behind Closed Doors", "AI long-form video", "Long Form", "5:06", "Five-minute AI-visual narrative with bold kinetic captions.", "landscape"),
+  video("victory-ministries", "Victory Christian Ministries", "Ministry · Long form", "Long Form", "2:27", "Typography-driven long-form piece for a church ministry.", "landscape"),
+];
+
+/** Featured in the Showreel section. */
+export const showreel = projects.find((p) => p.id === "ai-film")!;
 
 export const processSteps = [
   {
     step: "01",
-    title: "Brief & discovery",
-    body: "We talk through the goal, the audience and the deadline. I come back with a scope, a price and a delivery date — all fixed.",
+    title: "Brief",
+    body: "Send the goal, the platform, the footage or product and any reference ads. I confirm the scope and the delivery date.",
   },
   {
     step: "02",
-    title: "Assembly & direction",
-    body: "Footage gets logged and a rough assembly or moodboard lands within days, so we agree on direction before polish begins.",
+    title: "First cut",
+    body: "I build the hook, structure and captions and send a first version quickly, so we agree on direction early.",
   },
   {
     step: "03",
-    title: "Craft & revisions",
-    body: "Grading, sound, motion and typography come together. Two rounds of notes are included, tracked in one place.",
+    title: "Revisions",
+    body: "Your notes go into the next version — pacing, text, music and graphics tightened until it is ready to run.",
   },
   {
     step: "04",
-    title: "Delivery & handoff",
-    body: "Masters in every aspect ratio you need, plus source files and a short guide so your team can reuse the system.",
+    title: "Delivery",
+    body: "Final files in every size you need (9:16, 1:1, 16:9), plus hook or caption variations for testing.",
   },
 ];
 
-export const testimonials = [
-  {
-    quote:
-      "Edrian turned 40 hours of messy footage into a six-minute film that our investors actually watched twice. The pacing is what sold it.",
-    name: "Dana Okafor",
-    title: "Head of Brand, Orbit Labs",
-  },
-  {
-    quote:
-      "The identity system was the first one we've had that the whole team could use without asking a designer. That alone paid for it.",
-    name: "Marco Reyes",
-    title: "Founder, Coastal Coffee Co.",
-  },
-  {
-    quote:
-      "Fast, calm, and unusually good at taking notes without losing the thread. Our launch video shipped two days early.",
-    name: "Priya Raman",
-    title: "Marketing Lead, Vertex Foundry",
-  },
-];
-
-export const tools = [
-  "Premiere Pro",
-  "After Effects",
-  "DaVinci Resolve",
-  "Illustrator",
-  "Photoshop",
-  "InDesign",
-  "Figma",
-  "Cinema 4D",
-  "Blender",
-  "Audition",
-];
+export const tools = ["Adobe Premiere Pro", "Adobe Photoshop", "CapCut"];
