@@ -2,11 +2,12 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { MapPin } from "lucide-react";
+import { Cake, GraduationCap, MapPin } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
 import Marquee from "./ui/Marquee";
 import { profile, tools } from "@/lib/data";
+import { asset } from "@/lib/asset";
 
 export default function About() {
   const ref = useRef<HTMLDivElement>(null);
@@ -27,11 +28,18 @@ export default function About() {
               style={{ y, rotate }}
               className="grain relative aspect-[4/5] overflow-hidden rounded-3xl border border-ink-700 bg-gradient-to-br from-flare-600 via-rose-600 to-pulse-500"
             >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_15%,rgba(255,255,255,0.35),transparent_55%)]" />
+              {/* Stylized (posterized, site-palette) version of Edrian's photo. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={asset("/media/about/edrian.jpg")}
+                alt={`Illustrated portrait of ${profile.name}`}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-transparent to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-7">
                 <p className="font-mono text-xs uppercase tracking-[0.24em] text-ink-100/70">
-                  Portrait / 2026
+                  {profile.role}
                 </p>
                 <p className="mt-1 text-2xl font-semibold tracking-tight text-ink-100">
                   {profile.name}
@@ -48,7 +56,7 @@ export default function About() {
             >
               <p className="text-3xl font-semibold text-gradient">{profile.years}+</p>
               <p className="mt-0.5 max-w-[9rem] text-xs leading-snug text-ink-400">
-                years on timelines and artboards
+                years editing video and designing graphics
               </p>
             </motion.div>
 
@@ -62,33 +70,50 @@ export default function About() {
           <div className="order-1 flex flex-col gap-8 lg:order-2">
             <SectionHeading
               eyebrow="About"
-              title="A one-person post house."
+              title={`Hi, I'm ${profile.name}.`}
             />
 
             <Reveal delay={0.1} className="flex flex-col gap-5 text-base leading-relaxed text-ink-300 sm:text-lg">
               <div>
                 <p>
-                  I started in a college edit bay cutting gig footage for local
-                  bands, then spent {profile.years} years splitting time between
-                  post-production and the design side of the same campaigns.
+                  I&apos;m a {profile.age}-year-old video editor and graphic
+                  designer, and a {profile.education} graduate. For the last{" "}
+                  {profile.years} years I&apos;ve been making video ads, UGC edits,
+                  AI videos and static graphics for brands.
                 </p>
                 <p className="mt-5">
-                  That overlap is the point. When the person grading your film also
-                  drew the wordmark on the end card, the whole thing lands as one
-                  idea instead of three vendors arguing about hex codes.
+                  Most of my work is direct-response: e-commerce, health,
+                  insurance, beauty and home services. I care about the first
+                  three seconds, clear captions and an offer people can&apos;t
+                  miss. I also design the static ads, so the video and the
+                  graphics match.
                 </p>
                 <p className="mt-5">
-                  I work with a small number of clients at a time — studios, record
-                  labels, and founders who care about craft and hate long threads.
+                  I edit in Adobe Premiere Pro and CapCut, and design in Adobe
+                  Photoshop. I work freelance with clients anywhere.
                 </p>
               </div>
             </Reveal>
 
             <Reveal delay={0.2}>
-              <div className="flex items-center gap-2 text-sm text-ink-400">
-                <MapPin size={15} className="text-flare-500" />
-                {profile.location}
-              </div>
+              <dl className="grid grid-cols-1 gap-3 text-sm sm:grid-cols-3">
+                {[
+                  { icon: MapPin, label: "Based in", value: "Philippines · Freelance" },
+                  { icon: GraduationCap, label: "Education", value: profile.education },
+                  { icon: Cake, label: "Age", value: `${profile.age}` },
+                ].map(({ icon: Icon, label, value }) => (
+                  <div
+                    key={label}
+                    className="rounded-2xl border border-ink-800 bg-ink-900/50 px-4 py-3"
+                  >
+                    <dt className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-400">
+                      <Icon size={13} className="text-flare-500" />
+                      {label}
+                    </dt>
+                    <dd className="mt-1 text-ink-100">{value}</dd>
+                  </div>
+                ))}
+              </dl>
             </Reveal>
           </div>
         </div>

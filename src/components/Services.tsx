@@ -17,8 +17,8 @@ export default function Services() {
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="What I do"
-          title="Two crafts, one workflow"
-          description="Editing and design usually live in separate quotes and separate calendars. Here they do not — which is why launches ship faster and look like one thing."
+          title="Video and graphics for ads that convert"
+          description="One person for the edit and the static creative, so your video ads and graphics match and ship together."
         />
 
         <motion.div

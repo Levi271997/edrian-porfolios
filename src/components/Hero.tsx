@@ -74,7 +74,7 @@ export default function Hero() {
           />
           <SplitText
             as="span"
-            text="and design brands."
+            text="and design ads."
             delay={0.18}
             className="block text-[clamp(2.75rem,10vw,7.5rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-gradient"
           />
@@ -86,8 +86,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.75 }}
           className="mt-8 max-w-xl text-lg leading-relaxed text-ink-300"
         >
-          {profile.tagline} {profile.years} years cutting film and building
-          identity systems for studios, labels and founders.
+          {profile.tagline} {profile.years} years making UGC, AI and
+          direct-response video for brands, working freelance from the
+          Philippines.
         </motion.p>
 
         <motion.div

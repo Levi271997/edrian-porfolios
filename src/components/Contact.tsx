@@ -5,10 +5,10 @@ import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight, Check, Loader2, Mail } from "lucide-react";
 import SectionHeading from "./ui/SectionHeading";
 import MagneticButton from "./ui/MagneticButton";
-import { profile, socials } from "@/lib/data";
+import { profile } from "@/lib/data";
 
-const budgets = ["Under 2k", "2k – 5k", "5k – 15k", "15k and up"];
-const needs = ["Video edit", "Motion", "Branding", "Print", "Not sure yet"];
+const budgets = ["One video", "A batch of ads", "Ongoing / monthly", "Not sure yet"];
+const needs = ["Video ad", "UGC edit", "AI video", "Graphics", "Long form"];
 
 type Status = "idle" | "sending" | "sent";
 
@@ -37,39 +37,22 @@ export default function Contact() {
           <div className="flex flex-col gap-10">
             <SectionHeading
               eyebrow="Contact"
-              title="Got something to cut or brand?"
-              description="Tell me the goal and the deadline. You will get a reply within one business day, with a scope and a fixed price attached."
+              title="Need ads that stop the scroll?"
+              description="Tell me about the product, the platform and the deadline, and I will get back to you with a plan and a quote."
             />
 
             <div className="flex flex-col gap-4">
               <a
                 href={"mailto:" + profile.email}
-                className="group inline-flex w-fit items-center gap-3 text-2xl font-semibold tracking-tight text-ink-100 sm:text-3xl"
+                className="group inline-flex w-fit max-w-full items-center gap-3 text-lg font-semibold tracking-tight text-ink-100 sm:text-2xl"
                 data-cursor="Email"
               >
-                <Mail size={22} className="text-flare-500" />
-                <span className="relative">
+                <Mail size={22} className="shrink-0 text-flare-500" />
+                <span className="relative min-w-0 break-all">
                   {profile.email}
                   <span className="absolute -bottom-1 left-0 h-px w-full origin-right scale-x-0 bg-flare-500 transition-transform duration-300 group-hover:origin-left group-hover:scale-x-100" />
                 </span>
               </a>
-
-              <ul className="mt-4 flex flex-wrap gap-3">
-                {socials.map((social) => (
-                  <li key={social.label}>
-                    <motion.a
-                      href={social.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      whileHover={{ y: -3 }}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-ink-700 px-4 py-2 text-sm text-ink-300 transition-colors hover:border-flare-500/60 hover:text-ink-100"
-                    >
-                      {social.label}
-                      <ArrowRight size={13} className="-rotate-45" />
-                    </motion.a>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
 
@@ -85,7 +68,7 @@ export default function Contact() {
             <Field label="Email" name="email" type="email" placeholder="you@studio.com" />
 
             <Chips label="What do you need?" options={needs} value={need} onChange={setNeed} />
-            <Chips label="Budget range" options={budgets} value={budget} onChange={setBudget} />
+            <Chips label="Project size" options={budgets} value={budget} onChange={setBudget} />
 
             <label className="flex flex-col gap-2">
               <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-400">

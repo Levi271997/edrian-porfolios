@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw source media (2 GB, includes private ID scans) — web copies live in public/media
+/src/Videos and Graphics/
