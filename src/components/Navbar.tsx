@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { Menu, X } from "lucide-react";
-import { profile } from "@/lib/data";
+import Logo from "./ui/Logo";
 
 const links = [
   { label: "Work", href: "#work" },
@@ -49,21 +49,10 @@ export default function Navbar() {
         >
           <a
             href="#top"
-            className="group flex items-center gap-2.5"
+            aria-label="Edrian Multimedia — back to top"
             data-cursor="Top"
           >
-            <span className="relative grid h-8 w-8 place-items-center overflow-hidden rounded-lg bg-gradient-to-br from-flare-400 to-pulse-500">
-              <span className="font-display text-sm font-bold text-ink-950">E</span>
-              <motion.span
-                className="absolute inset-0 bg-ink-950"
-                initial={{ y: "100%" }}
-                whileHover={{ y: "0%" }}
-                transition={{ duration: 0.3 }}
-              />
-            </span>
-            <span className="text-sm font-semibold tracking-tight text-ink-100">
-              {profile.name}
-            </span>
+            <Logo />
           </a>
 
           <ul className="hidden items-center gap-1 md:flex">
